@@ -102,23 +102,22 @@
 		36A622D424AE10FB00B22D1F /* NewsTitles */ = {
 			isa = PBXGroup;
 			children = (
-				36A622EB24AE2F7E00B22D1F /* NewsTitlesViewFactory */,
+				36A622EB24AE2F7E00B22D1F /* ViewFactory */,
 				36A622DE24AE132100B22D1F /* Models */,
 				36A622DB24AE118200B22D1F /* Interactor */,
 				36A622D624AE111A00B22D1F /* ViewModel */,
-				36A622D524AE110A00B22D1F /* View */,
+				36A622D524AE110A00B22D1F /* Views */,
 			);
 			path = NewsTitles;
 			sourceTree = "<group>";
 		};
-		36A622D524AE110A00B22D1F /* View */ = {
+		36A622D524AE110A00B22D1F /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				36A622D724AE113C00B22D1F /* NewsTitlesViewController.swift */,
-				36A622E124AE139E00B22D1F /* NewsTitlesSection.swift */,
 				36A622E324AE14B500B22D1F /* NewsTitlesCell.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		36A622D624AE111A00B22D1F /* ViewModel */ = {
@@ -143,17 +142,18 @@
 			isa = PBXGroup;
 			children = (
 				36A622DF24AE132C00B22D1F /* NewsTitle.swift */,
+				36A622E124AE139E00B22D1F /* NewsTitlesSection.swift */,
 				36A622E724AE21A900B22D1F /* NewsTitlesResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
 		};
-		36A622EB24AE2F7E00B22D1F /* NewsTitlesViewFactory */ = {
+		36A622EB24AE2F7E00B22D1F /* ViewFactory */ = {
 			isa = PBXGroup;
 			children = (
 				36A622EC24AE2F9700B22D1F /* NewsTitlesViewFactory.swift */,
 			);
-			path = NewsTitlesViewFactory;
+			path = ViewFactory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -6,6 +6,7 @@
 //  Copyright © 2020 Артем Соболев. All rights reserved.
 //
 
+import Foundation
 import Combine
 
 class NewsTitlesInteractor: NewsTitlesInteractorProtocol {
@@ -16,14 +17,10 @@ class NewsTitlesInteractor: NewsTitlesInteractorProtocol {
         self.networkClient = networkClient
     }
     
-    func getTitles(pageSize: Int, pageOffset: Int) -> AnyPublisher<[NewsTitle], NetworkClientError> {
+    func getTitles(pageSize: Int, pageOffset: Int) -> AnyPublisher<NewsTitlesResponse, NetworkClientError> {
         let path = "https://cfg.tinkoff.ru/news/public/api/platform/v1/getArticles?pageSize=\(pageSize)&pageOffset=\(pageOffset)"
         return networkClient
-            .getData(from: path,
-                     responseModelType: NewsTitlesResponse.self)
-            .map {
-                $0.response?.news?.filter { $0.hidden == false }.compactMap { $0.title }.map { NewsTitle(title: $0) } ?? []
-            }
+            .getData(from: path, responseModelType: NewsTitlesResponse.self)
             .eraseToAnyPublisher()
     }
 }

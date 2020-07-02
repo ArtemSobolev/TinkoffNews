@@ -9,5 +9,6 @@
 import Foundation
 
 struct NewsTitle: Hashable {
+    let id: String
     let title: String
 }

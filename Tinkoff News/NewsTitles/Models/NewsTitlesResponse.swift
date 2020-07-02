@@ -21,6 +21,7 @@ extension NewsTitlesResponse {
 
 extension NewsTitlesResponse.Response {
     struct News: Decodable {
+        let id: String?
         let title: String?
         let hidden: Bool?
     }

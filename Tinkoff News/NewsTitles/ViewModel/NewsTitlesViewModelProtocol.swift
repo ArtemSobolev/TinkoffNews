@@ -10,6 +10,9 @@ import Foundation
 
 protocol NewsTitlesViewModelProtocol: ObservableObject {
     var titles: [NewsTitle] { get }
+    var isLoadingMore: Bool { get }
     
     func load()
+    func loadMore()
+    func refresh()
 }
