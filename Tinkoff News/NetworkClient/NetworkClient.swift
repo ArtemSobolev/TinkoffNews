@@ -25,7 +25,10 @@ class NetworkClient: NetworkClientProtocol {
         monitor.start(queue: DispatchQueue(label: "Network connection monitoring"))
     }
     
-    func getData<ResponseModel>(from urlString: String) -> AnyPublisher<ResponseModel, NetworkClientError> where ResponseModel: Decodable {
+    func getData<ResponseModel: Decodable>(from urlString: String,
+                                           responseModelType: ResponseModel.Type)
+        -> AnyPublisher<ResponseModel, NetworkClientError> {
+            
         guard let url = URL(string: urlString) else {
             return Fail(error: .invalidUrl(urlString)).eraseToAnyPublisher()
         }

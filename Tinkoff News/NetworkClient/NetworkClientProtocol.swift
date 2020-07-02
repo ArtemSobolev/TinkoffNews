@@ -10,5 +10,7 @@ import Foundation
 import Combine
 
 protocol NetworkClientProtocol {
-    func getData<ResponseModel>(from urlString: String) -> AnyPublisher<ResponseModel, NetworkClientError> where ResponseModel: Decodable
+    func getData<ResponseModel: Decodable>(from urlString: String,
+                                           responseModelType: ResponseModel.Type)
+        -> AnyPublisher<ResponseModel, NetworkClientError>
 }
