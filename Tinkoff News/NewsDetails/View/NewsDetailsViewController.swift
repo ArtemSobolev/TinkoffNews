@@ -22,7 +22,7 @@ class NewsDetailsViewController<ViewModel: NewsDetailsViewModelProtocol>: UIView
         return textView
     }()
     
-    private var loadingView: LoadingView!
+    private lazy var loadingView = LoadingView(frame: view.bounds)
     private var subscriptions = Set<AnyCancellable>()
     
     init(viewModel: ViewModel) {
@@ -36,17 +36,11 @@ class NewsDetailsViewController<ViewModel: NewsDetailsViewModelProtocol>: UIView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Details"
-        navigationItem.largeTitleDisplayMode = .never
+        
         view.backgroundColor = .white
         view.addSubview(textView)
         setupConstraints()
         subscribeToViewModel()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        loadingView = LoadingView(frame: view.bounds)
         viewModel.load()
     }
     

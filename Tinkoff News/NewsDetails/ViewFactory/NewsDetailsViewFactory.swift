@@ -9,13 +9,6 @@
 import Foundation
 import UIKit
 
-struct NewsDetailsViewFactory {
-    
-    func createNewsDetailsView(withSlug slug: String) -> UIViewController {
-        let interactor = NewsDetailsInteractor(networkClient: NetworkClient.shared)
-        let viewModel = NewsDetailsViewModel(slug: slug, interactor: interactor)
-        let view = NewsDetailsViewController(viewModel: viewModel)
-        
-        return view
-    }
+protocol NewsDetailsViewFactoryProtocol {
+    func createNewsDetailsView(withSlug slug: String) -> UIViewController
 }

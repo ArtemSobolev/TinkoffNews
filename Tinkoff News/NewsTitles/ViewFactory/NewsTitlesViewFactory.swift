@@ -8,12 +8,6 @@
 
 import UIKit
 
-struct NewsTitlesViewFactory {
-    func createNewsTitlesView() -> UIViewController {
-        let interactor = NewsTitlesInteractor(networkClient: NetworkClient.shared)
-        let viewModel = NewsTitlesViewModel(interactor: interactor)
-        let view = NewsTitlesViewController(viewModel: viewModel)
-        
-        return view
-    }
+protocol NewsTitlesViewFactoryProtocol {
+    func createNewsTitlesView(coordinator: TinkoffCoordinatorProtocol) -> UIViewController
 }

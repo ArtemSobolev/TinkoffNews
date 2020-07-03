@@ -16,6 +16,7 @@ class NewsTitlesViewModel: NewsTitlesViewModelProtocol {
     var isLoading: Bool = false
     
     private let interactor: NewsTitlesInteractorProtocol
+    private let coordinator: TinkoffCoordinatorProtocol
     private var subscriptions = Set<AnyCancellable>()
     
     private let pageSize: Int = 20
@@ -23,8 +24,9 @@ class NewsTitlesViewModel: NewsTitlesViewModelProtocol {
     private var totalResults: Int = 0
     private var fullScreenLoading: Bool = true
     
-    init(interactor: NewsTitlesInteractorProtocol) {
+    init(interactor: NewsTitlesInteractorProtocol, coordinator: TinkoffCoordinatorProtocol) {
         self.interactor = interactor
+        self.coordinator = coordinator
     }
     
     func load() {
@@ -67,5 +69,9 @@ class NewsTitlesViewModel: NewsTitlesViewModelProtocol {
         titles.removeAll()
         fullScreenLoading = false
         load()
+    }
+    
+    func newsSelected(withSlug slug: String) {
+        coordinator.pushNewsDetails(withSlug: slug)
     }
 }

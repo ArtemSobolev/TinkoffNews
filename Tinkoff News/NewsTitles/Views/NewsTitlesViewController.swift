@@ -28,21 +28,15 @@ class NewsTitlesViewController<ViewModel: NewsTitlesViewModelProtocol>: UITableV
     private lazy var dataSource: DataSource = createDataSource()
     private var subscriptions = Set<AnyCancellable>()
     private let cellId = "NewsTitlesCell"
-    private var loadingView: LoadingView!
+    private lazy var loadingView = LoadingView(frame: view.bounds)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Tinkoff News"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        
         setupTableView()
         setupRefreshControl()
         applySnapshot(animate: false)
         subscribeToViewModel()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        loadingView = LoadingView(frame: view.bounds)
         viewModel.load()
     }
     
@@ -125,8 +119,6 @@ class NewsTitlesViewController<ViewModel: NewsTitlesViewModelProtocol>: UITableV
             return
         }
         
-        let detailsVC = NewsDetailsViewFactory().createNewsDetailsView(withSlug: slug)
-        
-        navigationController?.pushViewController(detailsVC, animated: true)
+        viewModel.newsSelected(withSlug: slug)
     }
 }

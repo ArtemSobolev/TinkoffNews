@@ -32,6 +32,8 @@
 		36A6230524AF612A00B22D1F /* NewsDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A6230424AF612A00B22D1F /* NewsDetailsViewModel.swift */; };
 		36A6230824AF62AA00B22D1F /* NewsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A6230724AF62AA00B22D1F /* NewsDetailsViewController.swift */; };
 		36A6230B24AF69AD00B22D1F /* NewsDetailsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A6230A24AF69AD00B22D1F /* NewsDetailsViewFactory.swift */; };
+		36A6230D24AF71B900B22D1F /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A6230C24AF71B900B22D1F /* Coordinator.swift */; };
+		36A6231024AF73CC00B22D1F /* Tinkoff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A6230F24AF73CC00B22D1F /* Tinkoff.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		36A6230424AF612A00B22D1F /* NewsDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewModel.swift; sourceTree = "<group>"; };
 		36A6230724AF62AA00B22D1F /* NewsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewController.swift; sourceTree = "<group>"; };
 		36A6230A24AF69AD00B22D1F /* NewsDetailsViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailsViewFactory.swift; sourceTree = "<group>"; };
+		36A6230C24AF71B900B22D1F /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		36A6230F24AF73CC00B22D1F /* Tinkoff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tinkoff.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		36A622B624ADF65E00B22D1F /* Tinkoff News */ = {
 			isa = PBXGroup;
 			children = (
+				36A6230E24AF739F00B22D1F /* Tinkoff */,
 				36A622F824AF5B3800B22D1F /* NewsDetails */,
 				36A622F324AF288A00B22D1F /* Common */,
 				36A622D424AE10FB00B22D1F /* NewsTitles */,
@@ -236,6 +241,15 @@
 			path = ViewFactory;
 			sourceTree = "<group>";
 		};
+		36A6230E24AF739F00B22D1F /* Tinkoff */ = {
+			isa = PBXGroup;
+			children = (
+				36A6230F24AF73CC00B22D1F /* Tinkoff.swift */,
+				36A6230C24AF71B900B22D1F /* Coordinator.swift */,
+			);
+			path = Tinkoff;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -314,6 +328,8 @@
 				36A622FE24AF5F5800B22D1F /* NewsDetailsResponse.swift in Sources */,
 				36A622CE24ADFA9400B22D1F /* NetworkClientProtocol.swift in Sources */,
 				36A622FB24AF5C5700B22D1F /* NewsDetailsInteractorProtocol.swift in Sources */,
+				36A6231024AF73CC00B22D1F /* Tinkoff.swift in Sources */,
+				36A6230D24AF71B900B22D1F /* Coordinator.swift in Sources */,
 				36A622F724AF4CB700B22D1F /* LoadingView.swift in Sources */,
 				36A622E424AE14B500B22D1F /* NewsTitlesCell.swift in Sources */,
 				36A622EA24AE22AF00B22D1F /* NewsTitlesInteractor.swift in Sources */,

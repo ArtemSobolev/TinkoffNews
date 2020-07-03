@@ -16,4 +16,5 @@ protocol NewsTitlesViewModelProtocol: ObservableObject {
     func load()
     func loadMore()
     func refresh()
+    func newsSelected(withSlug slug: String)
 }
