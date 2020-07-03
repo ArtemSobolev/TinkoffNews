@@ -1,14 +1,14 @@
 //
-//  NetworkClientError.swift
+//  Error.swift
 //  Tinkoff News
 //
-//  Created by Артем Соболев on 02.07.2020.
+//  Created by Артем Соболев on 03.07.2020.
 //  Copyright © 2020 Артем Соболев. All rights reserved.
 //
 
 import Foundation
 
-enum NetworkClientError: Error, CustomStringConvertible {
+enum Error: Swift.Error, CustomStringConvertible {
     case invalidUrl(String)
     case parsingError
     case unsuccessStatusCode(Int)

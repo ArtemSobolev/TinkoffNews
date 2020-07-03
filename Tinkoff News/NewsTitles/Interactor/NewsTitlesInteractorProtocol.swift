@@ -9,5 +9,5 @@
 import Combine
 
 protocol NewsTitlesInteractorProtocol {
-    func getTitles(pageSize: Int, pageOffset: Int) -> AnyPublisher<NewsTitlesResponse, NetworkClientError>
+    func getTitles(pageSize: Int, pageOffset: Int) -> AnyPublisher<NewsTitlesResponse, Error>
 }

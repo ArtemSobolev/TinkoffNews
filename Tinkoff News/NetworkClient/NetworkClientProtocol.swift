@@ -12,5 +12,5 @@ import Combine
 protocol NetworkClientProtocol {
     func getData<ResponseModel: Decodable>(from urlString: String,
                                            responseModelType: ResponseModel.Type)
-        -> AnyPublisher<ResponseModel, NetworkClientError>
+        -> AnyPublisher<ResponseModel, Error>
 }

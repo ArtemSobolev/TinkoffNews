@@ -28,6 +28,7 @@ class NewsTitlesViewController<ViewModel: NewsTitlesViewModelProtocol>: UITableV
     private lazy var dataSource: DataSource = createDataSource()
     private var subscriptions = Set<AnyCancellable>()
     private let cellId = "NewsTitlesCell"
+    private var loadingView: LoadingView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,7 @@ class NewsTitlesViewController<ViewModel: NewsTitlesViewModelProtocol>: UITableV
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        loadingView = LoadingView(frame: view.bounds)
         viewModel.load()
     }
     
@@ -68,6 +70,8 @@ class NewsTitlesViewController<ViewModel: NewsTitlesViewModelProtocol>: UITableV
             .sink { [weak self] _ in
                 
                 guard let self = self else { return }
+                
+                self.showLoadingActivity(isLoading: self.viewModel.isLoading)
                 
                 if self.refreshControl?.isRefreshing == true {
                     self.refreshControl?.endRefreshing()
@@ -110,5 +114,9 @@ class NewsTitlesViewController<ViewModel: NewsTitlesViewModelProtocol>: UITableV
         if bottomY * 1.5 >= contentHeight && !viewModel.titles.isEmpty {
             viewModel.loadMore()
         }
+    }
+    
+    private func showLoadingActivity(isLoading: Bool) {
+        isLoading ? tableView.addSubview(loadingView) : loadingView.removeFromSuperview()
     }
 }

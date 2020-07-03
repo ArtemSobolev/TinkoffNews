@@ -13,19 +13,26 @@ class NewsTitlesViewModel: NewsTitlesViewModelProtocol {
     
     var titles: [NewsTitle] = []
     var isLoadingMore: Bool = false
+    var isLoading: Bool = false
     
     private let interactor: NewsTitlesInteractorProtocol
     private var subscriptions = Set<AnyCancellable>()
     
-    private let pageSize: Int = 200
+    private let pageSize: Int = 20
     private var pageOffset: Int { titles.count }
     private var totalResults: Int = 0
+    private var fullScreenLoading: Bool = true
     
     init(interactor: NewsTitlesInteractorProtocol) {
         self.interactor = interactor
     }
     
     func load() {
+        if fullScreenLoading {
+            isLoading = true
+            objectWillChange.send()
+        }
+        
         interactor
             .getTitles(pageSize: pageSize, pageOffset: pageOffset)
             .handleEvents(receiveOutput: { [weak self] response in
@@ -43,13 +50,14 @@ class NewsTitlesViewModel: NewsTitlesViewModelProtocol {
             
             }, receiveValue: { [weak self] _ in
                 self?.isLoadingMore = false
+                self?.isLoading = false
                 self?.objectWillChange.send()
             })
             .store(in: &subscriptions)
     }
     
     func loadMore() {
-        guard !isLoadingMore && pageOffset < totalResults else { return }
+        guard !isLoadingMore && !isLoading && pageOffset < totalResults else { return }
         isLoadingMore = true
         objectWillChange.send()
         load()
@@ -57,6 +65,7 @@ class NewsTitlesViewModel: NewsTitlesViewModelProtocol {
     
     func refresh() {
         titles.removeAll()
+        fullScreenLoading = false
         load()
     }
 }

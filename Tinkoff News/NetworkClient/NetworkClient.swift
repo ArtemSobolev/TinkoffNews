@@ -27,7 +27,7 @@ class NetworkClient: NetworkClientProtocol {
     
     func getData<ResponseModel: Decodable>(from urlString: String,
                                            responseModelType: ResponseModel.Type)
-        -> AnyPublisher<ResponseModel, NetworkClientError> {
+        -> AnyPublisher<ResponseModel, Error> {
             
         guard let url = URL(string: urlString) else {
             return Fail(error: .invalidUrl(urlString)).eraseToAnyPublisher()
@@ -40,18 +40,18 @@ class NetworkClient: NetworkClientProtocol {
         return URLSession.shared.dataTaskPublisher(for: url)
             .tryMap {
                 guard let response = $0.response as? HTTPURLResponse else {
-                    throw NetworkClientError.invalidResponse
+                    throw Error.invalidResponse
                 }
                 
                 let statusCode = response.statusCode
                 guard (200..<300).contains(statusCode) else {
-                    throw NetworkClientError.unsuccessStatusCode(statusCode)
+                    throw Error.unsuccessStatusCode(statusCode)
                 }
                 
                 return $0.data
             }
             .decode(type: ResponseModel.self, decoder: JSONDecoder())
-            .mapError { error -> NetworkClientError in
+            .mapError { error -> Error in
                 switch error {
                 case is DecodingError:
                     return .parsingError

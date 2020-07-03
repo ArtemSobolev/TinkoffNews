@@ -13,7 +13,6 @@
 		36A622C424ADF65F00B22D1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36A622C224ADF65F00B22D1F /* LaunchScreen.storyboard */; };
 		36A622CE24ADFA9400B22D1F /* NetworkClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A622CD24ADFA9400B22D1F /* NetworkClientProtocol.swift */; };
 		36A622D024ADFB2D00B22D1F /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A622CF24ADFB2D00B22D1F /* NetworkClient.swift */; };
-		36A622D324ADFB8F00B22D1F /* NetworkClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A622D224ADFB8F00B22D1F /* NetworkClientError.swift */; };
 		36A622D824AE113C00B22D1F /* NewsTitlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A622D724AE113C00B22D1F /* NewsTitlesViewController.swift */; };
 		36A622DA24AE116300B22D1F /* NewsTitlesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A622D924AE116300B22D1F /* NewsTitlesViewModel.swift */; };
 		36A622DD24AE119100B22D1F /* NewsTitlesInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A622DC24AE119100B22D1F /* NewsTitlesInteractorProtocol.swift */; };
@@ -24,6 +23,8 @@
 		36A622E824AE21A900B22D1F /* NewsTitlesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A622E724AE21A900B22D1F /* NewsTitlesResponse.swift */; };
 		36A622EA24AE22AF00B22D1F /* NewsTitlesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A622E924AE22AF00B22D1F /* NewsTitlesInteractor.swift */; };
 		36A622ED24AE2F9700B22D1F /* NewsTitlesViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A622EC24AE2F9700B22D1F /* NewsTitlesViewFactory.swift */; };
+		36A622F524AF289300B22D1F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A622F424AF289300B22D1F /* Error.swift */; };
+		36A622F724AF4CB700B22D1F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A622F624AF4CB700B22D1F /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +36,6 @@
 		36A622C524ADF65F00B22D1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36A622CD24ADFA9400B22D1F /* NetworkClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientProtocol.swift; sourceTree = "<group>"; };
 		36A622CF24ADFB2D00B22D1F /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
-		36A622D224ADFB8F00B22D1F /* NetworkClientError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientError.swift; sourceTree = "<group>"; };
 		36A622D724AE113C00B22D1F /* NewsTitlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTitlesViewController.swift; sourceTree = "<group>"; };
 		36A622D924AE116300B22D1F /* NewsTitlesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTitlesViewModel.swift; sourceTree = "<group>"; };
 		36A622DC24AE119100B22D1F /* NewsTitlesInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTitlesInteractorProtocol.swift; sourceTree = "<group>"; };
@@ -46,6 +46,8 @@
 		36A622E724AE21A900B22D1F /* NewsTitlesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTitlesResponse.swift; sourceTree = "<group>"; };
 		36A622E924AE22AF00B22D1F /* NewsTitlesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTitlesInteractor.swift; sourceTree = "<group>"; };
 		36A622EC24AE2F9700B22D1F /* NewsTitlesViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTitlesViewFactory.swift; sourceTree = "<group>"; };
+		36A622F424AF289300B22D1F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		36A622F624AF4CB700B22D1F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 		36A622B624ADF65E00B22D1F /* Tinkoff News */ = {
 			isa = PBXGroup;
 			children = (
+				36A622F324AF288A00B22D1F /* Common */,
 				36A622D424AE10FB00B22D1F /* NewsTitles */,
 				36A622CC24ADFA5F00B22D1F /* NetworkClient */,
 				36A622B724ADF65E00B22D1F /* AppDelegate.swift */,
@@ -94,7 +97,6 @@
 			children = (
 				36A622CF24ADFB2D00B22D1F /* NetworkClient.swift */,
 				36A622CD24ADFA9400B22D1F /* NetworkClientProtocol.swift */,
-				36A622D224ADFB8F00B22D1F /* NetworkClientError.swift */,
 			);
 			path = NetworkClient;
 			sourceTree = "<group>";
@@ -154,6 +156,15 @@
 				36A622EC24AE2F9700B22D1F /* NewsTitlesViewFactory.swift */,
 			);
 			path = ViewFactory;
+			sourceTree = "<group>";
+		};
+		36A622F324AF288A00B22D1F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				36A622F424AF289300B22D1F /* Error.swift */,
+				36A622F624AF4CB700B22D1F /* LoadingView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,10 +237,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36A622F524AF289300B22D1F /* Error.swift in Sources */,
 				36A622E624AE1F7800B22D1F /* NewsTitlesViewModelProtocol.swift in Sources */,
 				36A622ED24AE2F9700B22D1F /* NewsTitlesViewFactory.swift in Sources */,
 				36A622D024ADFB2D00B22D1F /* NetworkClient.swift in Sources */,
 				36A622CE24ADFA9400B22D1F /* NetworkClientProtocol.swift in Sources */,
+				36A622F724AF4CB700B22D1F /* LoadingView.swift in Sources */,
 				36A622E424AE14B500B22D1F /* NewsTitlesCell.swift in Sources */,
 				36A622EA24AE22AF00B22D1F /* NewsTitlesInteractor.swift in Sources */,
 				36A622B824ADF65E00B22D1F /* AppDelegate.swift in Sources */,
@@ -237,7 +250,6 @@
 				36A622DA24AE116300B22D1F /* NewsTitlesViewModel.swift in Sources */,
 				36A622DD24AE119100B22D1F /* NewsTitlesInteractorProtocol.swift in Sources */,
 				36A622E224AE139E00B22D1F /* NewsTitlesSection.swift in Sources */,
-				36A622D324ADFB8F00B22D1F /* NetworkClientError.swift in Sources */,
 				36A622E024AE132C00B22D1F /* NewsTitle.swift in Sources */,
 				36A622D824AE113C00B22D1F /* NewsTitlesViewController.swift in Sources */,
 				36A622BA24ADF65E00B22D1F /* SceneDelegate.swift in Sources */,
