@@ -107,6 +107,10 @@ class NewsTitlesViewController<ViewModel: NewsTitlesViewModelProtocol>: UITableV
         viewModel.refresh()
     }
     
+    private func showLoadingActivity(isLoading: Bool) {
+        isLoading ? tableView.addSubview(loadingView) : loadingView.removeFromSuperview()
+    }
+    
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let bottomY = scrollView.contentOffset.y + scrollView.frame.height
         let contentHeight = scrollView.contentSize.height
@@ -116,7 +120,13 @@ class NewsTitlesViewController<ViewModel: NewsTitlesViewModelProtocol>: UITableV
         }
     }
     
-    private func showLoadingActivity(isLoading: Bool) {
-        isLoading ? tableView.addSubview(loadingView) : loadingView.removeFromSuperview()
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let slug = dataSource.itemIdentifier(for: indexPath)?.slug else {
+            return
+        }
+        
+        let detailsVC = NewsDetailsViewFactory().createNewsDetailsView(withSlug: slug)
+        
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

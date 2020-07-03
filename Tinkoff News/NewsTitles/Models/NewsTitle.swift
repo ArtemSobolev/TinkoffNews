@@ -10,5 +10,6 @@ import Foundation
 
 struct NewsTitle: Hashable {
     let id: String
+    let slug: String
     let title: String
 }

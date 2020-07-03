@@ -19,8 +19,6 @@ class NewsTitlesInteractor: NewsTitlesInteractorProtocol {
     
     func getTitles(pageSize: Int, pageOffset: Int) -> AnyPublisher<NewsTitlesResponse, Error> {
         let path = "https://cfg.tinkoff.ru/news/public/api/platform/v1/getArticles?pageSize=\(pageSize)&pageOffset=\(pageOffset)"
-        return networkClient
-            .getData(from: path, responseModelType: NewsTitlesResponse.self)
-            .eraseToAnyPublisher()
+        return networkClient.getData(from: path, responseModelType: NewsTitlesResponse.self)
     }
 }

@@ -39,7 +39,7 @@ class NewsTitlesViewModel: NewsTitlesViewModelProtocol {
                 self?.totalResults = response.response?.total ?? 0
                 
                 let titles = response.response?.news?.map {
-                    NewsTitle(id: $0.id ?? UUID().uuidString, title: $0.title ?? "")
+                    NewsTitle(id: $0.id ?? UUID().uuidString, slug: $0.slug ?? "", title: $0.title ?? "")
                 }
                 .filter { !$0.title.isEmpty }
                 ?? []
